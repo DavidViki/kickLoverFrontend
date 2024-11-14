@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Autofill styles for light mode */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: #ffffff !important; /* Light mode autofill background */
+  color: #000000 !important; /* Light mode text color */
+  -webkit-text-fill-color: #000000 !important; /* Ensure text color is correct */
+  transition: background-color 5000s ease-in-out 0s; /* Prevent flashing */
+}
+
+/* Autofill styles for dark mode */
+.dark input:-webkit-autofill,
+.dark textarea:-webkit-autofill,
+.dark select:-webkit-autofill {
+  background-color: #374151 !important; /* Tailwind gray-700 */
+  color: #ffffff !important; /* Dark mode text color */
+  -webkit-text-fill-color: #ffffff !important; /* Ensure text color in dark mode */
+  transition: background-color 5000s ease-in-out 0s; /* Prevent flashing */
+}
+
+/* Forcing autofill to inherit the text color and fixing the background color */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #ffffff inset !important; /* Light mode box shadow */
+}
+
+.dark input:-webkit-autofill,
+.dark textarea:-webkit-autofill,
+.dark select:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #374151 inset !important; /* Dark mode box shadow for gray-700 */
+}
+
+body {
+  @apply bg-gray-100;
+}
+
+body.dark {
+  @apply bg-gray-900
+}
+
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+
+.slick-dots li button {
+  display: block;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transition: background 0.3s;
+
+}
+
+.dark .slick-dots li button {
+  background: rgba(31, 41, 55, 0.5);
+  border-radius: 50%;
+}
+
+.dark .slick-dots li.slick-active button {
+  background: rgba(31,41,55,1);
+}
+
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.3s;
+  z-index: 10;
+}
+
+.slick-prev {
+  color: black;
+  left:-15px;
+}
+
+.slick-next {
+  right: -15px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba (255, 255, 255, 1);
+}
+
+.dark .slick-prev,
+.dark .slick-next {
+  color:white
+}
+
+@import url('https://unpkg.com/leaflet/dist/leaflet.css');
